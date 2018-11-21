@@ -1,25 +1,40 @@
-import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { Component } from "react";
+import "./App.css";
+import MovieTemplate from "./components/MovieTemplate";
+import axios from "axios";
+const urlString =
+  // "https://api.themoviedb.org/3/search/movie?api_key=b6cf942411531af0d1635061b75f82a6&language=ko-Kr&page=1&include_adult=true&query=" +
+  // searchTerm;
+  "https://api.themoviedb.org/3/discover/movie?api_key=b6cf942411531af0d1635061b75f82a6&language=ko-Kr&page=1&include_adult=true";
 
 class App extends Component {
+  componentDidMount() {
+    this.getData();
+  }
+
+  state = {
+    value: "",
+    movies: []
+  };
+
+  getData = () => {
+    axios
+      .get(urlString)
+      .then(response => {
+        this.setState({
+          movies: response.data.results
+        });
+      })
+      .catch(err => {
+        console.log(err);
+      });
+  };
   render() {
+    const { movies, value } = this.state;
+    console.log(this.state);
     return (
       <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
+        <MovieTemplate movies={movies} value={value} />
       </div>
     );
   }
