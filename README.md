@@ -3,9 +3,9 @@
 ## used
 
 - Redux
-- Sass
 - Axois
 - [Material UI](https://material-ui.com/)
+- redux thunk
 
 ## 구현
 
