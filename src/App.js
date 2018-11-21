@@ -29,6 +29,7 @@ class App extends Component {
         console.log(err);
       });
   };
+  
   render() {
     const { movies, value } = this.state;
     console.log(this.state);
