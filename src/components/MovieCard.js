@@ -5,6 +5,7 @@ import Card from "@material-ui/core/Card";
 import CardContent from "@material-ui/core/CardContent";
 import CardMedia from "@material-ui/core/CardMedia";
 import Grid from "@material-ui/core/Grid";
+import { CardActionArea } from "@material-ui/core";
 
 const styles = {
   cardMedia: {
@@ -23,22 +24,27 @@ const styles = {
   }
 };
 
-const MediaCard = ({ classes, movie }) => {
+const MediaCard = ({ classes, movie, key }) => {
   const { title, poster_path } = movie;
   const poster_src = `https://image.tmdb.org/t/p/w185/${poster_path}`;
   return (
     <Grid item sm={6} md={4} lg={3}>
-      <Card className={classes.card}>
-        <CardMedia
-          className={classes.cardMedia}
-          src={poster_src}
-          image={poster_src}
-          title={title}
-        />
-        <CardContent className={classes.cardContent}>
-          <p>{title}</p>
-        </CardContent>
-      </Card>
+      <CardActionArea>
+        <Card className={classes.card}>
+          <CardMedia
+            className={classes.cardMedia}
+            src={poster_src}
+            image={poster_src}
+            title={title}
+          />
+
+          <CardContent className={classes.cardContent}>
+            <p>
+              <b>{title}</b>
+            </p>
+          </CardContent>
+        </Card>
+      </CardActionArea>
     </Grid>
   );
 };
