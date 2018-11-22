@@ -28,7 +28,7 @@ const MediaCard = ({ classes, movie, key }) => {
   const { title, poster_path } = movie;
   const poster_src = `https://image.tmdb.org/t/p/w185/${poster_path}`;
   return (
-    <Grid item sm={6} md={4} lg={3}>
+    <Grid item xs={12} sm={6} md={4} lg={3}>
       <CardActionArea>
         <Card className={classes.card}>
           <CardMedia
