@@ -3,6 +3,7 @@ import CssBaseline from "@material-ui/core/CssBaseline";
 import MovieSearchBar from "./MovieSearchBar";
 import Grid from "@material-ui/core/Grid";
 import MovieCardList from "./MovieCardList";
+import MovieSearchContainer from "../containers/MovieSearchContainer";
 
 const MovieTemplate = ({ movies, value }) => {
   return (
@@ -10,7 +11,7 @@ const MovieTemplate = ({ movies, value }) => {
       <CssBaseline />
       <Grid container justify="center" alignItems="center">
         <Grid item xs={9}>
-          <MovieSearchBar />
+          <MovieSearchContainer />
         </Grid>
       </Grid>
       <MovieCardList movies={movies} />

@@ -13,7 +13,6 @@ class App extends Component {
   }
 
   state = {
-    value: "",
     movies: []
   };
 
@@ -31,11 +30,11 @@ class App extends Component {
   };
 
   render() {
-    const { movies, value } = this.state;
+    const { movies } = this.state;
     console.log(this.state);
     return (
       <div className="App">
-        <MovieTemplate movies={movies} value={value} />
+        <MovieTemplate movies={movies} />
       </div>
     );
   }

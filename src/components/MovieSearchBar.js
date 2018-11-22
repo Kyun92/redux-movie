@@ -14,14 +14,14 @@ const styles = theme => ({
   }
 });
 
-const MovieSearchBar = props => {
-  const { classes } = props;
+const MovieSearchBar = ({ classes, onChange, input }) => {
+  console.log(classes, onChange, input);
   return (
     <Paper className={classes.paper}>
       <form>
         <FormControl fullWidth>
           <InputLabel htmlFor="search">Search...</InputLabel>
-          <Input id="search" name="search" />
+          <Input id="search" name="search" onChange={onChange} value={input} />
         </FormControl>
       </form>
     </Paper>
