@@ -1,37 +1,34 @@
 import React, { Component } from "react";
 import "./App.css";
 import MovieTemplate from "./components/MovieTemplate";
-import axios from "axios";
-const urlString =
-  // "https://api.themoviedb.org/3/search/movie?api_key=b6cf942411531af0d1635061b75f82a6&language=ko-Kr&page=1&include_adult=true&query=" +
-  // searchTerm;
-  "https://api.themoviedb.org/3/discover/movie?api_key=b6cf942411531af0d1635061b75f82a6&language=ko-Kr&page=1&include_adult=true";
+import { bindActionCreators } from "redux";
+import { connect } from "react-redux";
+import * as postAction from "./modules/post";
 
 class App extends Component {
+  loadData = async () => {
+    const { PostAction, input } = this.props;
+    try {
+      const response = await PostAction.getPost(input);
+      console.log(response);
+    } catch (e) {
+      console.log(e);
+    }
+  };
+
   componentDidMount() {
-    this.getData();
+    this.loadData();
   }
 
-  state = {
-    movies: []
-  };
-
-  getData = () => {
-    axios
-      .get(urlString)
-      .then(response => {
-        this.setState({
-          movies: response.data.results
-        });
-      })
-      .catch(err => {
-        console.log(err);
-      });
-  };
+  componentDidUpdate(prevProps, prevState) {
+    if (this.props.input !== prevProps.input) {
+      this.loadData();
+    }
+  }
 
   render() {
-    const { movies } = this.state;
-    console.log(this.state);
+    console.log(this.props);
+    const { movies } = this.props;
     return (
       <div className="App">
         <MovieTemplate movies={movies} />
@@ -40,4 +37,12 @@ class App extends Component {
   }
 }
 
-export default App;
+export default connect(
+  state => ({
+    input: state.movie.input,
+    movies: state.post.movies
+  }),
+  dispatch => ({
+    PostAction: bindActionCreators(postAction, dispatch)
+  })
+)(App);

@@ -5,8 +5,7 @@ const CHANGE_INPUT = "movie/CHANGE_INPUT";
 export const changeInput = createAction(CHANGE_INPUT, text => text);
 
 const initialState = {
-  input: "",
-  movies: []
+  input: ""
 };
 
 export default handleActions(

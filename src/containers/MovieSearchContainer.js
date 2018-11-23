@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
-import * as movieActions from "../store/modules/movie";
+import * as movieActions from "../modules/movie";
 import MovieSearchBar from "../components/MovieSearchBar";
 
 class MovieSearchContainer extends Component {

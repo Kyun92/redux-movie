@@ -26,12 +26,15 @@ const MovieCardList = ({ classes, movies }) => {
   ));
   return (
     <div className={classNames(classes.layout, classes.cardGrid)}>
-      {/* End hero unit */}
       <Grid container spacing={24}>
         {cardBox}
       </Grid>
     </div>
   );
+};
+
+MovieCardList.defaultProps = {
+  movies: []
 };
 
 export default withStyles(styles)(MovieCardList);

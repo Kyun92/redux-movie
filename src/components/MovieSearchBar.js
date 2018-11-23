@@ -15,7 +15,6 @@ const styles = theme => ({
 });
 
 const MovieSearchBar = ({ classes, onChange, input }) => {
-  console.log(classes, onChange, input);
   return (
     <Paper className={classes.paper}>
       <form>

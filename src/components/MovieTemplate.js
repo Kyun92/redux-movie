@@ -4,7 +4,7 @@ import Grid from "@material-ui/core/Grid";
 import MovieCardList from "./MovieCardList";
 import MovieSearchContainer from "../containers/MovieSearchContainer";
 
-const MovieTemplate = ({ movies, value }) => {
+const MovieTemplate = ({ movies }) => {
   return (
     <div>
       <CssBaseline />
