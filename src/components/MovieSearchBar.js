@@ -9,23 +9,18 @@ import { withStyles } from "@material-ui/core/styles";
 const styles = theme => ({
   paper: {
     marginTop: theme.spacing.unit * 8,
-    display: "flex",
-    flexDirection: "column",
-    // alignItems: "center",
     padding: `${theme.spacing.unit * 2}px ${theme.spacing.unit * 3}px ${theme
       .spacing.unit * 3}px`
   }
 });
 
-const MovieSearchBar = props => {
-  const { classes } = props;
-
+const MovieSearchBar = ({ classes, onChange, input }) => {
   return (
     <Paper className={classes.paper}>
       <form>
         <FormControl fullWidth>
           <InputLabel htmlFor="search">Search...</InputLabel>
-          <Input id="search" name="search" />
+          <Input id="search" name="search" onChange={onChange} value={input} />
         </FormControl>
       </form>
     </Paper>
