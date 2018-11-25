@@ -12,7 +12,6 @@ const styles = {
     paddingTop: "56.25%",
     height: "325px",
     backgroundSize: "contain"
-    // 16:9,
   },
   cardContent: {
     flexGrow: 1
