@@ -5,6 +5,7 @@ import { bindActionCreators } from "redux";
 import { connect } from "react-redux";
 import * as postAction from "./modules/post";
 
+
 class App extends Component {
   loadData = async () => {
     const { PostAction, input } = this.props;
