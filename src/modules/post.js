@@ -2,7 +2,7 @@ import { createAction, handleActions } from "redux-actions";
 import axios from "axios";
 
 function getPostAPI(content) {
-  const key = `b6cf942411531af0d1635061b75f82a6`
+  const key = `b6cf942411531af0d1635061b75f82a6`;
   const urlString =
     content === ""
       ? `https://api.themoviedb.org/3/discover/movie?api_key=${key}&language=ko-Kr&page=1&include_adult=true`
