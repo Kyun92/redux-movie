@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 
-// import * as postActions from "../modules/post";
 import MovieCardList from "../components/MovieCardList";
 
 class MoiveListContainer extends Component {
@@ -12,10 +11,7 @@ class MoiveListContainer extends Component {
 }
 
 const mapStateTotprops = ({ post }) => ({
-  movies: post.movies
+  movies: post.movies,
 });
 
-export default connect(
-  mapStateTotprops,
-  null
-)(MoiveListContainer);
+export default connect(mapStateTotprops, null)(MoiveListContainer);
