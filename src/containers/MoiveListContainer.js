@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-
 import MovieCardList from "../components/MovieCardList";
 
 class MoiveListContainer extends Component {
